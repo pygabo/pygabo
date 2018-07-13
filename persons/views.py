@@ -14,6 +14,7 @@ class PersonListView(LoginRequiredMixin,ListView):
         context = super(PersonListView, self).get_context_data(**kwargs)
         context.update({
             'name': 'List Person',
+            'icon':'home',
         })
         return context
 
@@ -32,6 +33,7 @@ class PersonCreateView(LoginRequiredMixin, CreateView):
         context = super(PersonCreateView, self).get_context_data(**kwargs)
         context.update({
             'name': 'Create Person',
+            'icon': 'plus-square-o'
         })
         return context
 
@@ -51,6 +53,7 @@ class PersonUpdateView(LoginRequiredMixin, UpdateView):
         context = super(PersonUpdateView, self).get_context_data(**kwargs)
         context.update({
             'name': 'Update Person',
+            'icon':'edit',
         })
         return context
 
@@ -63,5 +66,6 @@ class PersonDeleteView(DeleteView):
         context = super(PersonDeleteView, self).get_context_data(**kwargs)
         context.update({
             'name': 'Delete Person',
+            'icon': 'trash-o',
         })
         return context
