@@ -4,7 +4,7 @@
 	<div class="col-md-6">
 		<div class="tile">
 			<div class="tile-title-w-btn">
-				<h3 class="title">{{ object.first_name|title }}</h3>
+				<h3 class="title">{{ object.first_name|title }} {{ object.last_name|title  }}</h3>
 				<div class="btn-group">
 					<a class="btn btn-primary" href="{% url 'persons:update_person' pk=object.pk %}">
 						<i class="fa fa-lg fa-edit"></i>
