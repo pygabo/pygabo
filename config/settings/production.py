@@ -20,7 +20,7 @@ DATABASES = {
 
 # STATIC
 # ------------------------
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-#INSTALLED_APPS += ['gunicorn']  # noqa F405
+INSTALLED_APPS += ['gunicorn']  # noqa F405
