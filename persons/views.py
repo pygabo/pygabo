@@ -17,7 +17,9 @@ class PersonListView(LoginRequiredMixin,ListView):
             'icon':'home',
         })
         return context
-
+    def get_queryset(self):
+        results = Person.objects.filter(owner=self.request.user)
+        return results
 
 class PersonCreateView(LoginRequiredMixin, CreateView):
     form_class = PersonForm
@@ -36,6 +38,7 @@ class PersonCreateView(LoginRequiredMixin, CreateView):
             'icon': 'plus-square-o'
         })
         return context
+
 
 
 class PersonUpdateView(LoginRequiredMixin, UpdateView):
