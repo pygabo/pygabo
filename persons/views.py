@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .utils import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Person
 from .forms import PersonForm
 
@@ -26,7 +26,7 @@ class PersonCreateView(LoginRequiredMixin, CreateView):
         furmulario.owner = self.request.user
         furmulario.save()
         self.object = furmulario
-        return redirect('index')
+        return redirect('persons:index')
 
     def get_context_data(self, **kwargs):
         context = super(PersonCreateView, self).get_context_data(**kwargs)
@@ -45,7 +45,7 @@ class PersonUpdateView(LoginRequiredMixin, UpdateView):
         furmulario.owner = self.request.user
         furmulario.save()
         self.object = furmulario
-        return redirect('index')
+        return redirect('persons:index')
 
     def get_context_data(self, **kwargs):
         context = super(PersonUpdateView, self).get_context_data(**kwargs)
@@ -57,7 +57,7 @@ class PersonUpdateView(LoginRequiredMixin, UpdateView):
 
 class PersonDeleteView(DeleteView):
     model = Person
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('persons:index')
 
     def get_context_data(self, **kwargs):
         context = super(PersonDeleteView, self).get_context_data(**kwargs)

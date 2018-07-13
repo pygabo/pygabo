@@ -40,12 +40,11 @@ DJANGO_APPS = [
 
 ]
 THIRD_PARTY_APPS = [
-
+    'crispy_forms',
 ]
 LOCAL_APPS = [
-
-
-
+    'accounts',
+    'persons',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -67,7 +66,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,4 +129,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+LOGIN_REDIRECT_URL = 'persons:index'
+
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+STATIC_ROOT = os.path.join((BASE_DIR), "venv", "static_env", "static_root")
+MEDIA_ROOT = os.path.join((BASE_DIR),  "venv", "static_env", "media_root")

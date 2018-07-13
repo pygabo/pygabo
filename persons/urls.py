@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import PersonListView,PersonCreateView,PersonDeleteView,PersonUpdateView
-
+app_name = 'persons'
 
 urlpatterns = [
     path('', PersonListView.as_view(), name='index'),
