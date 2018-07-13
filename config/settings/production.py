@@ -1,6 +1,8 @@
 from .base import *  # noqa
 
-SECRET_KEY = 'vip^*hgb+d^l@11c7acdw#9o@hx^c_*4c8%_c(mon(fsrsijag'
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
